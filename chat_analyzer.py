@@ -3,7 +3,7 @@ from datetime import datetime
 from matplotlib import pyplot as plt
 import matplotlib
 import numpy as np 
-
+from collections import Counter
 
 def read_dates(filename):
     """
@@ -25,13 +25,49 @@ def read_dates(filename):
             datetime_object.append(datetime.strptime(dates[index], '%b %d, %Y, %I:%M %p'))
         return datetime_object
 
+def remove_times(dates):
+    date_no_time = []
+    for index, value in enumerate(dates):
+        date_no_time.append(dates[index].date())
+    return date_no_time
+
 
 dates = read_dates("message_18.html")
-values = range(len(dates))
+only_dates = remove_times(dates)
+frequency = dict(Counter(only_dates))
+values = []
+unique_dates = []
+for key in frequency.keys():
+    values.append(frequency[key])
+    unique_dates.append(key)
+#figure out how to count the number of times per day 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# values = range(len(dates))
+
+
+
+
+
+
 
 
 #code to plot once you figure out values statement
-dates = matplotlib.dates.date2num(dates)
-plt.plot_date(dates, values, 'x', markersize=5)
-plt.gca().invert_xaxis()
+dates = matplotlib.dates.date2num(only_dates)
+# plt.plot_date(unique_dates, values, 'x', markersize=5)
+plt.bar(unique_dates, values)
 plt.show()
