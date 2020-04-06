@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-import datetime
+from datetime import datetime
 
 def read_dates(filename):
     """
@@ -8,31 +8,20 @@ def read_dates(filename):
     with open(filename,'rb') as fp:
         soup = BeautifulSoup(fp,'lxml')
         dates_finder = soup.findAll("div",{'class':'_3-94 _2lem'})
-        list_dates = []
         dates = []
         for element in dates_finder:
             element = element.text.strip().encode('utf-8')
             element = element.decode('utf-8').splitlines()
-            list_dates.append(element)
-        for index, value in enumerate(list_dates):
-            dates.append(list_dates[index][0].split(","))
+            dates.append(element)
+        #flatten dates list 
+        dates = [item for items in dates for item in items]
         return dates
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#def gen_datetime_object(dates):
+    
 
 
 dates = read_dates("message_18.html")
-
+print(dates[0])
+datetime_object = datetime.strptime(dates[0], '%b %d, %Y, %I:%M %p')
+print(datetime_object)
