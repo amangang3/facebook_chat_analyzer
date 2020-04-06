@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 
-
 def read_dates(filename):
     with open(filename,'rb') as fp:
         soup = BeautifulSoup(fp,'lxml')
@@ -8,6 +7,7 @@ def read_dates(filename):
         dates = []
         for element in dates_finder:
             element = element.text.strip().encode('utf-8')
+            element = element.decode('utf-8').splitlines()
             print(element)
             dates.append(element)
 read_dates("message_18.html")
