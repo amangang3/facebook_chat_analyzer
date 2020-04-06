@@ -27,3 +27,11 @@ def read_dates(filename):
 
 
 dates = read_dates("message_18.html")
+values = range(len(dates))
+
+
+#code to plot once you figure out values statement
+dates = matplotlib.dates.date2num(dates)
+plt.plot_date(dates, values, 'x', markersize=5)
+plt.gca().invert_xaxis()
+plt.show()
