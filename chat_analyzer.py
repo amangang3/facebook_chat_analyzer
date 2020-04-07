@@ -31,43 +31,17 @@ def remove_times(dates):
         date_no_time.append(dates[index].date())
     return date_no_time
 
+def frequency_plot(only_dates):
+    frequency = dict(Counter(only_dates))
+    values = []
+    unique_dates = []
+    for key in frequency.keys():
+        values.append(frequency[key])
+        unique_dates.append(key)
+    plt.bar(unique_dates, values)
+    plt.show()
+
 
 dates = read_dates("message_18.html")
 only_dates = remove_times(dates)
-frequency = dict(Counter(only_dates))
-values = []
-unique_dates = []
-for key in frequency.keys():
-    values.append(frequency[key])
-    unique_dates.append(key)
-#figure out how to count the number of times per day 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# values = range(len(dates))
-
-
-
-
-
-
-
-
-#code to plot once you figure out values statement
-dates = matplotlib.dates.date2num(only_dates)
-# plt.plot_date(unique_dates, values, 'x', markersize=5)
-plt.bar(unique_dates, values)
-plt.show()
+frequency_plot(only_dates)
