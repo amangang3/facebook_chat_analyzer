@@ -51,7 +51,6 @@ def frequency_plot(only_dates):
     plt.show()
 
 
-read_dates()
 dates = read_dates()
 dates = flatten_and_generate_datetime_object(dates)
 only_dates = remove_times(dates)
