@@ -10,7 +10,7 @@ def read_dates():
     Function below will take a folder of HTML files and return the dates information
     """
     import os
-    path = r"G:\Google Drive\Personal project\Chat log analyser\Bea"
+    path = r"G:\Google Drive\Personal project\Chat log analyser\Fania"
     dates = []
     for filename in os.listdir(path):
         if filename.endswith(".html"):
