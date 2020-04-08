@@ -5,6 +5,11 @@ import matplotlib
 import numpy as np 
 from collections import Counter
 from tkinter.filedialog import askdirectory
+from tkinter import *
+
+master = Tk()
+w = Message(master, text="Select the folder with the HTML message files")
+w.pack()
 
 def read_dates():
     """
