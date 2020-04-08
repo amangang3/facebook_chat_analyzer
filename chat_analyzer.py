@@ -4,13 +4,14 @@ from matplotlib import pyplot as plt
 import matplotlib
 import numpy as np 
 from collections import Counter
+from tkinter.filedialog import askdirectory
 
 def read_dates():
     """
     Function below will take a folder of HTML files and return the dates information
     """
     import os
-    path = r"G:\Google Drive\Personal project\Chat log analyser\Fania"
+    path = askdirectory()
     dates = []
     for filename in os.listdir(path):
         if filename.endswith(".html"):
