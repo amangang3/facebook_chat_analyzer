@@ -1,6 +1,6 @@
 # Facebook Chat Analyzer
 
-This python project will examine messages downloaded from facebook and plot the number of messages over time for one conversation
+This python project will examine messages downloaded from facebook and plot the number of messages over time for one conversation. 
 
 ## Getting Started
 
@@ -8,4 +8,4 @@ Simply run the python file and follow the prompt to find the folder. You must ha
 
 ### Prerequisites
 
-Beautifulsoup must be installed, tkinter and collections must be installed beforehand 
+Requires beautifulsoup, tkinter and collections. 
