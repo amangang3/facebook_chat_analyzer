@@ -49,6 +49,8 @@ def frequency_plot(only_dates):
         values.append(frequency[key])
         unique_dates.append(key)
     plt.bar(unique_dates, values)
+    plt.xlabel('Date')
+    plt.ylabel('Number of messages')
     plt.show()
 
 
